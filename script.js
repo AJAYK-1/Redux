@@ -1,14 +1,10 @@
 const redux = require('redux');
 const createStore = redux.createStore;
+const combineReducers = redux.combineReducers;
 
 
 const ORDER_BURGER = 'Order Burger'
-
-// Action...
-// const action = {
-//     type: ORDER_BURGER,
-//     shop_name: 'Burger Shop'
-// }
+const ORDER_PIZZA = 'Order Pizza'
 
 // Action Creator...
 function orderBurger() {
@@ -18,13 +14,24 @@ function orderBurger() {
     }
 }
 
-// Reducer...
-const initialState = {
-    burgerCount: 100,
-    patty: ['chicken', 'beef']
+function orderPizza() {
+    return {
+        type: ORDER_PIZZA,
+        payload: 100
+    }
 }
 
-const Reducer = (state = initialState, action) => {
+// Initalizing state...
+const initialStateforBurger = {
+    burgerCount: 100,
+}
+
+const initialStateforPizza = {
+    pizzaCount: 50
+}
+
+// Reducers...
+const ReducerBurger = (state = initialStateforBurger, action) => {
     switch (action.type) {
         case ORDER_BURGER: return {
             ...state,
@@ -34,15 +41,30 @@ const Reducer = (state = initialState, action) => {
     }
 }
 
+const ReducerPizza = (state = initialStateforPizza, action) => {
+    switch (action.type) {
+        case ORDER_PIZZA: return {
+            ...state,
+            pizzaCount: state.pizzaCount - 1
+        }
+        default: return state
+    }
+}
+
 // Store...
-const store = createStore(Reducer)
+const rootReducer = combineReducers({
+    ReducerBurger,
+    ReducerPizza
+})
+const store = createStore(rootReducer)
 
 // getState for accessing current state...
-console.log(store.getState())
+console.log('Initial State: ', store.getState())
 
 // listeners are updated using subcribe..
 const unSubscibe = store.subscribe(() => console.log('Updated State: ', store.getState()))
 
 // State is updated using dispatch...
 store.dispatch(orderBurger())
+store.dispatch(orderPizza())
 unSubscibe()
