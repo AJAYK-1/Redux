@@ -1,6 +1,9 @@
 const redux = require('redux');
 const createStore = redux.createStore;
 const combineReducers = redux.combineReducers;
+const reduxLogger = require('redux-logger')
+const logger = reduxLogger.createLogger()
+const applyMiddleware = redux.applyMiddleware
 
 
 const ORDER_BURGER = 'Order Burger'
@@ -56,7 +59,7 @@ const rootReducer = combineReducers({
     ReducerBurger,
     ReducerPizza
 })
-const store = createStore(rootReducer)
+const store = createStore(rootReducer,applyMiddleware(logger))
 
 // getState for accessing current state...
 console.log('Initial State: ', store.getState())
