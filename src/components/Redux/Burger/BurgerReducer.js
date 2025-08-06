@@ -1,10 +1,10 @@
 import { Order_Burger } from "./BurgerTypes"
 
-const initialState = {
-    burgerBuns: 1000
+const initialStateOfBurger = {
+    burgerBuns: 200
 }
 
-const burgerReducer = (state = initialState, action) => {
+const burgerReducer = (state = initialStateOfBurger, action) => {
     switch (action.type) {
         case Order_Burger: return {
             ...state,
