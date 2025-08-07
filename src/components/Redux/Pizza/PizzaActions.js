@@ -1,6 +1,7 @@
 import { Order_Pizza } from './PizzaTypes'
 
 
-export const orderPizza = () => ({
-    type: Order_Pizza
+export const orderPizza = (pizzanum = 1) => ({
+    type: Order_Pizza,
+    payload: pizzanum
 })

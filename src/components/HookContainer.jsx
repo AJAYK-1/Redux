@@ -7,9 +7,9 @@ import { orderPizza } from './Redux/Pizza/PizzaActions';
 function HookContainer() {
 
     const burgerBuns = useSelector(state => state.burger.burgerBuns)
-    console.log(burgerBuns);
     const pizzaBase = useSelector(state => state.pizza.pizzaBase)
-    console.log(pizzaBase)
+    // console.log(burgerBuns)
+    // console.log(pizzaBase)
     const dispatch = useDispatch()
 
 

@@ -9,7 +9,7 @@ const PizzaReducer = (state = initialStateOfPizza, action) => {
     switch (action.type) {
         case Order_Pizza: return {
             ...state,
-            pizzaBase: state.pizzaBase - 1
+            pizzaBase: state.pizzaBase - action.payload
         }
         default: return state
     }

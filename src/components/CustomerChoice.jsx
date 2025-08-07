@@ -1,14 +1,22 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { orderPizza } from './Redux/Pizza/PizzaActions'
 import { connect } from 'react-redux'
 
 
 function CustomerChoice(props) {
-    console.log(props)
+
+    const [pizzanum, setPizzanum] = useState(1)
+    // console.log(props)
+    
     return (
         <div>
+            <h1> customer's choice </h1>
             <h2> Number of available pizza base = {props.pizzaBase} </h2>
-            <button onClick={props.orderPizza}> Order Pizza </button>
+            <input type="number" name='pizzanum' placeholder='Enter number of pizzas...'
+            onChange={(e) => setPizzanum(e.target.value)} 
+            value={pizzanum} />
+            <br />
+            <button onClick={() => props.orderPizza(pizzanum)}> Order Pizza </button>
         </div>
     )
 }
@@ -18,7 +26,7 @@ const stateToProps = (state) => ({
 })
 
 const dispatchToProps = (dispatch) => ({
-    orderPizza: () => dispatch(orderPizza())
+    orderPizza: (pizzanum) => dispatch(orderPizza(pizzanum))
 })
 
 export default connect(stateToProps, dispatchToProps)(CustomerChoice)
