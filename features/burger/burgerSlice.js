@@ -1,5 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit"
-import { pizzaAction } from "../pizza/pizzaSlice.js"
+import { pizza_order } from "../pizza/pizzaSlice.js"
 
 const initialState = {
     burgerBuns: 200
@@ -14,7 +14,7 @@ const burgerSlice = createSlice({
         }
     },
     extraReducers: (builder) => {
-        builder.addCase(pizzaAction.pizza_order, (state) => {
+        builder.addCase(pizza_order, (state) => {
             state.burgerBuns--
         })
     }
@@ -23,4 +23,4 @@ const burgerSlice = createSlice({
 console.log(burgerSlice);
 
 export default burgerSlice.reducer
-export const burgerAction = burgerSlice.actions
+export const { burger_order } = burgerSlice.actions

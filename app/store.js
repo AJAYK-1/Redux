@@ -5,7 +5,7 @@ import productReducer from '../features/product/productSllice.js'
 import pkg from "redux-logger";
 
 const { createLogger } = pkg
-const logger = createLogger()
+// const logger = createLogger()
 
 const store = configureStore({
     reducer: {
@@ -13,7 +13,7 @@ const store = configureStore({
         burger: burgerReducer,
         product: productReducer
     },
-    middleware: (getDefaultMiddleware) => getDefaultMiddleware().concat(logger)
+    // middleware: (getDefaultMiddleware) => getDefaultMiddleware().concat(logger)
 })
 
 

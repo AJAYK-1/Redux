@@ -10,6 +10,9 @@ const pizzaSlice = createSlice({
     reducers: {
         pizza_order: (state) => {
             state.pizzaBase--
+        },
+        customer_choice: (state, action) => {
+            state.pizzaBase -= action.payload
         }
     }
 })
@@ -17,4 +20,4 @@ const pizzaSlice = createSlice({
 console.log(pizzaSlice)
 
 export default pizzaSlice.reducer
-export const pizzaAction = pizzaSlice.actions
+export const { pizza_order, customer_choice } = pizzaSlice.actions
