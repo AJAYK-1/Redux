@@ -8,7 +8,7 @@ const initialState = {
     error: ''
 }
 
-const fetchProducts = createAsyncThunk('product/fetchProducts', () => {
+export const fetchProducts = createAsyncThunk('product/fetchProducts', () => {
     return axios.get(`https://fakestoreapi.com/products`)
         .then(res => res.data.map((pro) => pro.title))
 })
@@ -33,4 +33,3 @@ const productSlice = createSlice({
 
 console.log(productSlice);
 export default productSlice.reducer
-export const FetchProducts = fetchProducts

@@ -6,6 +6,7 @@ import PizzaBox from "./components/PizzaBox"
 import CustomerChoice from "./components/CustomerChoice"
 import ProductComponent from "./components/ProductComponent"
 import PizzaBurgerView from "./components/PizzaBurgerView"
+import ProductView from "./components/productView"
 
 
 function App() {
@@ -19,7 +20,8 @@ function App() {
       {/* <CustomerChoice /> */}
       {/* <ProductComponent /> */}
       {/* </Provider> */}
-      <PizzaBurgerView />
+      {/* <PizzaBurgerView /> */}
+      <ProductView />
     </>
   )
 }
